@@ -35,4 +35,8 @@ class FleaMarketRepository(@Autowired val jdbcTemplate: JdbcTemplate, @Autowired
             FlemaRequest.imgUrl,
         )
     }
+
+    fun deleteFlemaById(id: Long) {
+        jdbcTemplate.update("DELETE FROM product WHERE id = ?", id)
+    }
 }

@@ -46,6 +46,12 @@ class FleaMarketRestController(@Autowired val fleaMarketRepository: FleaMarketRe
         return ResponseEntity(HttpStatus.CREATED)
     }
 
+    @DeleteMapping("/api/items/delete/{id}")
+    fun deleteItem(@PathVariable id: Long): String {
+        fleaMarketRepository.deleteFlemaById(id)
+        return "削除完了"
+    }
+
     @Value("\${imgbb.api.key}")
     private lateinit var imgBbApiKey: String
 
